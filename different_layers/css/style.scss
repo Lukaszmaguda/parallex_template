@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+@mixin align-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    font-family: 'Montseratt', sans-serif;
+    font-size: 4em;
+    color: white;
+    font-weight: bold;
+    
+
+    .parallax_wrapper{
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        perspective: 300px;
+        .intro_screen{
+            height: 100vh;
+            background-color: #DACBFE;
+            @include align-center;
+        }
+
+        .outro_screen{
+            height: 100vh;
+            background-color: #FCE1F8;
+            @include align-center;
+        }
+        .parallax_group{
+            position: relative;
+            height: 100vh;
+            transform-style: preserve-3d ;
+
+            .parallax_layer{
+                position:absolute;
+                inset: 0;
+                @include align-center;
+
+            }
+
+            .base_layer{
+                // scale calculation: 1+ ((Z transform value * -1) / perspective)
+                transform: translateZ(-300px) scale(2.1);
+            }
+            .mid_layer{
+                transform: translateZ(0);
+                
+            }
+            .top_layer{
+                transform: translateZ(210px) scale(0.35);
+                background-color: #FFFCE7;
+            }
+        }
+
+
+        #intro{
+            z-index: 0;
+        }
+        
+
+        #group-1{
+            z-index: -1;
+        }
+
+        #group-1 > .base_layer{
+            background-color: #E1FFD4;
+        }
+
+        // #group-2{}
+        
+        #group-2 > .mid_layer{
+            background-color: #CAEEFE;
+        }
+
+        // #outro{}
+    } 
+}
