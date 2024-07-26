@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   box-sizing: border-box;
+  color: white;
 }
 
 .first {
@@ -33,14 +34,13 @@ body {
 .box {
   background-color: var(--clr);
   color: white;
-  width: 400px;
-  height: 300px;
-  margin: 10px;
+  width: 50vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   transform: translateX(400%);
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .box:nth-of-type(even) {
@@ -48,5 +48,9 @@ body {
 }
 
 .box.show {
-  transform: translateX(0);
+  transform: translateX(25vw);
+}
+
+.box.show:nth-of-type(even) {
+  transform: translateX(-25vw);
 }/*# sourceMappingURL=style.css.map */

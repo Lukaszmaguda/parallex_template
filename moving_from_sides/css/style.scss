@@ -2,6 +2,7 @@
 
 *{
     box-sizing: border-box;
+    color: white;
 }
 
 .first{
@@ -18,10 +19,10 @@
     --clr:#7D898A;
 }
 
-@mixin align-center{
+@mixin align-centers{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:center;
+    align-items: center; 
 }
 
 body{
@@ -29,24 +30,26 @@ body{
     font-family: "Montserrat", sans-serif;   
     flex-direction: column;
     margin: 0;
-    @include align-center;
+    @include align-centers();
     overflow-x: hidden;
 }
 
 .box{
     background-color: var(--clr);
     color: white;
-    width: 400px;
-    height: 300px;
-    margin: 10px; 
-    @include align-center;
+    width: 50vw; 
+    height: 100vh;  //deleted margin
+    @include align-centers;
     transform: translateX(400%);
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
 .box:nth-of-type(even){
     transform: translateX(-400%);
 }
 .box.show{
-    transform: translateX(0);
+    transform: translateX(25vw); //changed from 0 to 25vw to set boxes to right side
+}
+.box.show:nth-of-type(even){
+    transform: translateX(-25vw); //added to slide even boxes to left side
 }
